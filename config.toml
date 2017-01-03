@@ -1,0 +1,14 @@
+baseurl = "/"
+languageCode = "pl"
+title = "Containers Training"
+theme = "hugo-theme-learn"
+metadataformat = "yaml"
+canonifyurls = true
+createFromSiteMenusMain = true
+
+[params]
+  author = "Kamil Chmielewski"
+  description = "Docker training."
+  showVisitedLinks = true
+
+  menu = [ "about", "introduction", "build", "hub", "communication", "gc", "compose" ]

@@ -1,0 +1,8 @@
+version: "2"
+services:
+  mongo:
+    image: mongo
+  express:
+    image: mongo-express
+    ports:
+      - "8081:8081"
