@@ -2,12 +2,12 @@
 
 ### Co? Kto? Czym?
 
-#### 1. [Wprowadzenie](/Introduction.md/)
-#### 2. Budowanie i uruchamianie obrazów
-#### 3. Publikownie obrazów
-#### 4. Komunikacja ze światem zewnętrznym
-#### 5. Sprzątanie śmieci
-#### 6. Docker Compose
+#### 1. [Wprowadzenie](/Introduction.md)
+#### 2. [Budowanie i uruchamianie obrazów](/Budowanie_i_uruchamianie_obrazów.md)
+#### 3. [Publikownie obrazów](/Publikowanie_obrazow.md)
+#### 4. [Komunikacja ze światem zewnętrznym](/Komunikacja_ze_swiatem_zewnetrznym.md)
+#### 5. [Sprzątanie śmieci](/Sprzatanie_smieci.md)
+#### 6. [Docker Compose](/Docker_Compose.md)
 
 ### Kamil Chmielewski
 
