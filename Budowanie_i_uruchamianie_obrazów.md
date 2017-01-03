@@ -63,7 +63,7 @@ Obrazy mogą być tworzone przez wiele osób i tak jak kod źródłowy będą ł
 w użyciu u utrzymaniu jeżeli każdy będzie mógł się skontaktować z autorem. Służy do
 tego instrukcja **MAINTAINER**:
 ```
-MAINTAINER Kamil Chmielewski <kamil.chm@gmail.com>
+MAINTAINER Piotr Szwed <pszwed@gmail.com>
 ```
 
 ##### Potrzebujemy dodatkowych pakietów
