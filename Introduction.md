@@ -11,14 +11,7 @@
 
 ### Kamil Chmielewski
 
-* ponad 10+ lat doświadczenia w dostarczaniu systemów
-* allegro.pl, PZU, empik.com, bms.com.pl
-* developer, architect, team leader, product owner, product manager
-* C++, Python, Java, Groovy, Go produkcyjnie
-* Elixir, Elm, Erlang, Nim, Pony dla zabawy
-* VMware, OpenStack, Mesos, Docker
-* pragmatic programmer, continuous delivery practitioner
-* lubię programowanie ale nie lubię pisać kodu
+## Doświadczony praktyk w zakresie wdrożeń DevOps, Continuous Delivery i Konteneryzacji (Docker). Od 15 lat jako konsultant wspiera te obszary w wielu różnych organizacjach i projektach w Polsce i za granicą. Bierze aktywny udział w rozwoju społeczności DevOps oraz innowacyjnych (i otwartych) narzędzi wspierających idee Infrastructure as Code, czy Platform as a Service. 
 
 http://twitter.com/kamilchm
 
