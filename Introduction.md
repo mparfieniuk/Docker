@@ -52,3 +52,6 @@ Docker version 1.12.1, build 23cf638
 * mcedit
 * micro
 * vim
+
+
+[Next>](/Budowanie_i_uruchamianie_obrazów.md)
