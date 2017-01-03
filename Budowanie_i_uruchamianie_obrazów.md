@@ -250,3 +250,5 @@ $ docker build -t hello-flask .
 
 Wszystkie kroki przed skopiowaniem źródeł aplikacji znajdują się już w cache i są pomijane.
 Wykonywane są tylko instrukcje zaczynające się od kroku skopiowania pliku **hello.py**.
+
+[< Previous](/Introduction.md)  [Next>](/Publikowanie_obrazow.md)
