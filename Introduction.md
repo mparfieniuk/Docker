@@ -9,7 +9,7 @@
 #### 5. [Sprzątanie śmieci](/Sprzatanie_smieci.md)
 #### 6. [Docker Compose](/Docker_Compose.md)
 
-### Kamil Chmielewski
+### Piotr Szwed
 
 Doświadczony praktyk w zakresie wdrożeń DevOps, Continuous Delivery i Konteneryzacji (Docker). Od 15 lat jako konsultant wspiera te obszary w wielu różnych organizacjach i projektach w Polsce i za granicą. Bierze aktywny udział w rozwoju społeczności DevOps oraz innowacyjnych (i otwartych) narzędzi wspierających idee Infrastructure as Code, czy Platform as a Service. 
 
