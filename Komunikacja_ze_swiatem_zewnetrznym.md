@@ -1,9 +1,7 @@
----
-next: /communication/link
-prev: /communication/env
-title: Współdzielone dane
-weight: 42
----
+# Komunikacja z kontenerem
+
+### Zmienne środowiskowe, dysk, sieć
+
 
 ### Dane w kontenerze są efemeryczne
 
@@ -68,4 +66,26 @@ kolejnymi uruchomieniami.
 Dane z kontenera będą też dostępne zamontowanym systemie plików
 ```
 $ ls /tmp/arangodb/
+```
+### Mikrousługi lubią swoje kontenery
+
+Dobra architektura oddziela od siebie niezależne technicznie komponenty. Stąd coraz
+częściej słyszymy o mikrousługach. W takim podejściu apikacja korzystająca z bazy
+danych powinna być od niej odpowiednio odseparowana. Jedynym połaczeniem powinien
+być ściśle okreslony interfejs bazy danych i jej sterownika, udostępniony najczęściej
+na jakimś porcie.
+
+#### Baza danych
+
+Jako bazę danych do ćwiczenia wykorzystamy **MongoDB** w najprostszej konfiguracji.
+Ważna natomiast jest nazwa tworzonego kontenera:
+
+```
+$ docker run --name some-mongo -d mongo
+```
+
+Tym razem nie wystawiamy żadnych portów z kontenera:
+
+```
+$ docker ps
 ```

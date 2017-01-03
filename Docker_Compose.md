@@ -1,9 +1,6 @@
----
-prev: /compose
-title: Aplikacja z bazą danych
-toc: true
-weight: 61
----
+# Docker Compose
+
+### Łatwy development w kilku kontenerach
 
 ### Kilka kontenerów jako całość
 

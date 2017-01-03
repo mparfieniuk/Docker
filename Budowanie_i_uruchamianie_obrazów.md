@@ -1,10 +1,7 @@
----
-prev: /build
-next: /build/expose
-title: Prosta aplikacja webowa
-toc: true
-weight: 21
----
+# Budowanie obrazów
+
+### Dockerfile i docker build
+
 
 ### Aplikcja webowa używająca [Flask](http://flask.pocoo.org/)
 
@@ -12,7 +9,7 @@ Flask to jeden z popularniejszych microframwerków, który bez zbędnych rzeczy
 pozwala na zbudowanie aplikacji webowej.
 
 <a id="easy-setup"></a>
-#### Easy to Setup 
+#### Easy to Setup
 
 ```
 $ pip install Flask
@@ -80,7 +77,7 @@ Jeżeli chcemy coś zaintsalować to msuimy użyć menadżera pakietów wspieran
 przez system wybrany jako obraz bazowy. W przypadku Ubuntu będzie to **APT**.
 {{% /notice %}}
 
-##### Powiedz dockerowi jakimi poleceniami zbudować obraz 
+##### Powiedz dockerowi jakimi poleceniami zbudować obraz
 
 Docker pozwala na kompozycję obrazu przez podanie listy następujących po sobie kroków,
 które zostaną wykonane. Kolejne kroki do wykonania definiujemy używając instrukcji
@@ -144,3 +141,112 @@ Po wykonaniu tej operacji na {{% host-url type="docker" port="8080" %}} widoczna
 jest nasza nowa aplikacja.
 
 > Efekty ćwiczenia: [Dockerfile](/hello-flask/Dockerfile), [hello.py](/hello-flask/hello.py)
+
+### Kontrakt pomiędzy programistą i administratorem
+
+Możliwość podania dowolnej komendy w `docker run` pozwala na szybkie testowanie
+aplikacji i samego obrazu podczas ich developmentu.
+
+Docker daje nam więcej. Wprowadza pewnego rodzaju kontrakt między aplikacją a jej
+środowiskiem uruchomieniowym. Administratow nie musi ręczenie definiować komendy,
+którą należy podać żeby uruchomić aplikację w kontenerze, nie musi też przeglądać
+kodu żeby dowiedzieć się jakie na jakich portach ta aplikacja coś udostępnia.
+
+#### Jak uruchomić twoją aplikację?
+
+Każdy obraz może zdefiniować domyślną komendę, która zostanie uruchomiona w ramach
+kontenerów na nim bazujących. Dla nasze aplikacji możemy zdefiniować wykonanie
+`python hello.py` przez dyrektywę **CMD** w **Dockerfile**:
+
+```
+CMD ["python", "hello.py"]
+```
+
+#### Na jakich portach widoczna jest aplikacja?
+
+Porty zajmowane przez aplikację to także część kontraktu zapisanego w **Dockerfile**.
+Możemy jawnie powiedzieć podczas budowania obrazu, że nasza aplikacja staruje na
+porcie **5000**:
+
+```
+EXPOSE 5000
+```
+
+Teraz możemy przebudować obraz
+
+```
+$ docker build -t hello-flask .
+```
+
+wystartować konterem w tle z domyślnym mapowaniem portów:
+
+```
+$ docker run -d -P hello-flask
+```
+
+i zobaczyć na jaki losowy port został przemapowany (kolumna **PORTS**):
+
+```
+$ docker ps
+```
+
+Każdy z kontenerów wystawia osobną instancję naszej aplikacji co można sprawdzić
+przez wykonanie:
+
+```
+$ curl {{% host-url type="docker" port="32768" format="raw" %}}
+```
+
+podstawiając kolejne porty kontenererów wskazywane przez `docker ps`.
+
+Na koniec ćwiczenia możemy zatrzymać wszystkie kontenery komendą:
+
+```
+$ docker stop $(docker ps -q)
+```
+
+> Gotowy [Dockerfile](/expose/Dockerfile)
+
+### Każdy obraz składa się z warstw
+
+Docker buduje obrazy i kontenery nakładając na siebie kolejne warstwy systemu plików.
+Każda warstwa woorzona jest raz i nie może być póniej zmieniana. Zmiany w systemie
+plików są implementowane przez mechanizm *Copy-on-write*. Pozwala to uzyskać
+współdzielenie wspólnych części obrazów i kontenerów, a tym samym oszczędzać zajmowane
+przez nie miejsce.
+
+#### Każdy krok budowania jest warstwą
+
+Nasz obraz **hello-flask** to 12 warstw:
+
+```
+$ docker history hello-flask
+```
+
+#### Opytmalizacja zajętości dysku
+
+```
+$ docker images
+```
+
+#### Optymalizacja czasu budowania
+
+W ramach jednego **Dockerfile** budowane są tylko te kroki, które zostały zmienione
+albo kroki, które po nich następują.
+
+Możemy zmienić tylko źródła naszej aplikacji czyli **hello.py**, np:
+
+```
+@app.route("/")
+def hello():
+    return "<h1>Hello from Docker!</h1>"
+```
+
+i zbudować obraz:
+
+```
+$ docker build -t hello-flask .
+```
+
+Wszystkie kroki przed skopiowaniem źródeł aplikacji znajdują się już w cache i są pomijane.
+Wykonywane są tylko instrukcje zaczynające się od kroku skopiowania pliku **hello.py**.
