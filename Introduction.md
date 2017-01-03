@@ -11,7 +11,7 @@
 
 ### Kamil Chmielewski
 
-## Doświadczony praktyk w zakresie wdrożeń DevOps, Continuous Delivery i Konteneryzacji (Docker). Od 15 lat jako konsultant wspiera te obszary w wielu różnych organizacjach i projektach w Polsce i za granicą. Bierze aktywny udział w rozwoju społeczności DevOps oraz innowacyjnych (i otwartych) narzędzi wspierających idee Infrastructure as Code, czy Platform as a Service. 
+Doświadczony praktyk w zakresie wdrożeń DevOps, Continuous Delivery i Konteneryzacji (Docker). Od 15 lat jako konsultant wspiera te obszary w wielu różnych organizacjach i projektach w Polsce i za granicą. Bierze aktywny udział w rozwoju społeczności DevOps oraz innowacyjnych (i otwartych) narzędzi wspierających idee Infrastructure as Code, czy Platform as a Service. 
 
 http://twitter.com/kamilchm
 
